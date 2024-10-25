@@ -3,10 +3,10 @@ name: Deploy to Sakura Server
 on:
   push:
     branches:
-      - master
-    pull_request:
-      branches:
-        - development
+      - master  # mainからmasterに変更
+  pull_request:
+    branches:
+      - development
 
 jobs:
   build:
@@ -16,14 +16,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Change directory to src
-      run: cd src
-
     - name: Install dependencies
-      run: npm install
+      run: cd src && npm install  # srcに移動して依存関係をインストール
 
     - name: Generate static files
-      run: npm run generate
+      run: cd src && npm run generate  # srcに移動して静的ファイルを生成
 
     - name: Upload to Sakura Server
       uses: SamKirkland/FTP-Deploy-Action@4.3.1
@@ -31,5 +28,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: dist
+        local-dir: src/dist  # distがsrcの中にある場合、パスを修正
         server-dir: /home/visionary-design/www/dev
