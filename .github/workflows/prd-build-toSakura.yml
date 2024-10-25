@@ -28,5 +28,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: src/dist  # distがsrcの中にある場合、パスを修正
-        server-dir: /home/visionary-design/www/dev
+        local-dir: src/dist/  # distがsrcの中にある場合、パスを修正
+        server-dir: /home/visionary-design/www/dev/
