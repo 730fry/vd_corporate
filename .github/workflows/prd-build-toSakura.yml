@@ -1,0 +1,32 @@
+name: Deploy to Sakura Server
+
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      branches:
+        - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Generate static files
+      run: npm run generate
+
+    - name: Upload to Sakura Server
+      uses: SamKirkland/FTP-Deploy-Action@4.3.1
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: dist
+        server-dir: /home/visionary-design/www/dev
