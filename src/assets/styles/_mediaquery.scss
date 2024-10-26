@@ -1,0 +1,26 @@
+@use 'sass:map';
+
+$breakpoints: (
+	/*フォントサイズREM用 */
+	'xs': 'screen and (min-width: 1px) and (max-width:374px)',    // small smartphone
+	'sp': 'screen and (min-width: 374px) and (max-width:430px)',  // normal smartphone
+	'xx': 'screen and (min-width: 430px) and (max-width:560px)',  // no device
+	'tb': 'screen and (min-width: 560px) and (max-width:960px)', // ipad tablet
+	'pc': 'screen and (min-width: 960px) and (max-width:1400px)',// normal PC
+	'xl': 'screen and (min-width: 1400px)',                       // big PC
+	/*レイアウト用 */
+	'SHORT': 'screen and (min-width: 1px) and (max-width:960px)',
+	'LARGE': 'screen and (min-width: 961px)',
+) !default;
+
+@mixin mq($breakpoint: md) {
+	@media #{map.get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+
+@mixin mqFontSize( $lSize, $sSize ){
+	@include mq('LARGE'){ font-size: $lSize;}
+	@include mq('SHORT'){ font-size: $sSize;}
+}

@@ -1,0 +1,21 @@
+@use 'mediaquery' as *;
+
+html,body{
+    @include mq('xl'){ font-size: 11px; }
+    @include mq('pc'){ font-size: 10px; }
+    @include mq('tb'){ font-size: 12px; }
+    @include mq('xx'){ font-size: 11px; }
+    @include mq('sp'){ font-size: 10px; }
+    @include mq('xs'){ font-size:  9px; }
+}
+h1   { @include mqFontSize( 3.5em, 3.0em );}
+h2   { @include mqFontSize( 3.5em, 3.0em );}
+h3   { @include mqFontSize( 2.0em, 1.8em );}
+h4   { @include mqFontSize( 2.0em, 1.8em );}
+h5   { @include mqFontSize( 1.6em, 1.6em );}
+p    { @include mqFontSize( 1.6em, 1.6em );}
+a    { @include mqFontSize( 1.4em, 1.6em );}
+
+body{
+    font-family: 'Noto+Sans+JP','Noto Sans JP', 'NotoSansCJKjp',"Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
