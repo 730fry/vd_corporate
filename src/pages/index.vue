@@ -1,13 +1,10 @@
-<template>
-    <h1>エラーが消えました。</h1>
-</template>
-
-<script>
-export default {
-  name: 'IndexPage',
-}
+<script setup>
 </script>
 
-<style scoped>
+<template>
+    <h1>トップページです。</h1>
+</template>
 
+<style lang="scss" scoped>
+@use '@/assets/styles/mediaquery' as *;
 </style>

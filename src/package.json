@@ -24,6 +24,7 @@
     "@babel/eslint-parser": "^7.19.1",
     "@nuxtjs/eslint-config": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
+    "@types/node": "^22.8.4",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",
@@ -31,6 +32,7 @@
     "prettier": "^2.7.1",
     "sass": "^1.80.4",
     "sass-loader": "^10.5.2",
+    "typescript": "^5.6.3",
     "webpack": "^4.47.0",
     "webpack-cli": "^4.10.0"
   }
