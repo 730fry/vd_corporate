@@ -6,5 +6,5 @@
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/styles/mediaquery' as *;
+ @use '@/assets/styles/mediaquery' as *;
 </style>

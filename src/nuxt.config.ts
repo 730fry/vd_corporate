@@ -16,6 +16,13 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+
+      script: [
+        {
+          // フォント source-han-sans-japanese + termina
+          src: 'https://use.typekit.net/mhf2txt.js',
+        },
+      ],
     }
   },
 
