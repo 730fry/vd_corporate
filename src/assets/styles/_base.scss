@@ -30,14 +30,14 @@ body {
 html{
   //scroll-behavior: smooth;
 }
- 
+
 /* Remove list styles on ul, ol elements with a class attribute */
 /* class属性を持つul、ol要素のリストスタイルを削除 */
 ul[class],
 ol[class] {
   list-style: none;
 }
- 
+
 /* Make images easier to work with */
 /* img要素の扱いを簡単にする */
 img,picture {
@@ -45,13 +45,13 @@ img,picture {
   display: block;
   vertical-align: bottom;
 }
- 
+
 /* Natural flow and rhythm in articles by default */
 /* article要素内の要素に自然な流れとリズムを定義 */
 article > * + * {
   margin-top: 1em;
 }
- 
+
 /* Inherit fonts for inputs and buttons */
 /* inputやbuttonなどのフォントは継承を定義 */
 input,
