@@ -2,8 +2,11 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   ssr: false,
-
+  
   app: {
+
+    baseURL: process.env.NODE_ENV === 'development' ? '/' : '',
+
     head: {
       title: 'Visionary Design',
       htmlAttrs: {
@@ -40,6 +43,11 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image',
   ],
+
+  image: {
+    // ここでカスタムディレクトリを指定できます
+    dir: 'assets/images'
+  },
 
   build: {},
   compatibilityDate: '2024-10-29',
