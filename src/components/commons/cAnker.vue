@@ -59,7 +59,12 @@ const getElem = () => {
       :class="[
       'cAnker',
       'cAnker--nolink',
-      `cAnker--color-${prop.color}`]"
+      `cAnker--color-${prop.color}`,
+      // 他のコンポーネントからクラスを得るための記述
+      // $attrs.class が配列かどうかをチェックし、配列であればそのまま、
+      // そうでなければ配列としてラップして返す
+      ...(Array.isArray($attrs.class) ? $attrs.class : [$attrs.class])
+      ]"
       :style="styleset"
       >
       <slot>click</slot>
@@ -73,7 +78,12 @@ const getElem = () => {
       :class="[
       'cAnker',
       'cAnker--inner',
-      `cAnker--color-${prop.color}`]"
+      `cAnker--color-${prop.color}`,
+      // 他のコンポーネントからクラスを得るための記述
+      // $attrs.class が配列かどうかをチェックし、配列であればそのまま、
+      // そうでなければ配列としてラップして返す
+      ...(Array.isArray($attrs.class) ? $attrs.class : [$attrs.class])
+      ]"
       :style="styleset"
       @click="eventClick"
     >
@@ -85,7 +95,12 @@ const getElem = () => {
       :class="[
       'cAnker',
       'cAnker--outer',
-      `cAnker--color-${prop.color}`]"
+      `cAnker--color-${prop.color}`,
+      // 他のコンポーネントからクラスを得るための記述
+      // $attrs.class が配列かどうかをチェックし、配列であればそのまま、
+      // そうでなければ配列としてラップして返す
+      ...(Array.isArray($attrs.class) ? $attrs.class : [$attrs.class])
+      ]"
       :href="href"
       :style="styleset"
       target="_blank"
@@ -100,7 +115,12 @@ const getElem = () => {
       :class="[
       'cAnker',
       'cAnker--download',
-      `cAnker--color-${prop.color}`]"
+      `cAnker--color-${prop.color}`,
+      // 他のコンポーネントからクラスを得るための記述
+      // $attrs.class が配列かどうかをチェックし、配列であればそのまま、
+      // そうでなければ配列としてラップして返す
+      ...(Array.isArray($attrs.class) ? $attrs.class : [$attrs.class])
+      ]"
       :href="href"
       :style="styleset"
       download
