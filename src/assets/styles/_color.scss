@@ -5,3 +5,13 @@ $mainG: #1ffb91;
 $textP: #621ff5;
 $textW: #ffffff;
 $backgroundB: #332f49;
+
+@mixin gradationP {
+  background: rgb(171,34,255);
+  background: linear-gradient(130deg, rgba(171,34,255,1) 0%, rgba(98,31,245,1) 45%);
+}
+
+@mixin gradationGB($angle:130deg){
+  background: rgb(31,251,145);
+  background: linear-gradient($angle, rgba(31,251,145,1) 0%, rgba(46,128,228,1) 60%);
+}
