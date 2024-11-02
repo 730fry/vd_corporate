@@ -133,14 +133,14 @@ const getElem = () => {
 
 
 <style lang="scss" scoped>
-@use '@/assets/styles/color' as *;
-
 	.cAnker {
     text-decoration: none;
     cursor: pointer;
     user-select: none;
     font-size: var(--fontsize);
-
+    width: fit-content;
+    display: block;
+    
     // 文字の色設定
     &.cAnker--color-main {
       color: $textP;
