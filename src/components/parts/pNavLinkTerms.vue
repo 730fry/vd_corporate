@@ -18,6 +18,10 @@
 
 <style lang="scss">
   .pNavLinkTerms {
+    display: flex;
+    column-gap: 2.4em;
+    row-gap: 0.5em;
+
     .pNavLinkTerms-elem {
       @include fontEng;
     }
