@@ -33,6 +33,22 @@ export default defineNuxtConfig({
     '~/assets/styles/style.scss',
   ],
 
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @use "@/assets/styles/mediaquery" as *;
+            @use "@/assets/styles/color" as *;
+            @use "@/assets/styles/margin" as *;
+            @use "@/assets/styles/props" as *;
+            @use "@/assets/styles/font" as *;
+          `,
+        },
+      },
+    }
+  },
+
   plugins: [],
   components: true,
 
