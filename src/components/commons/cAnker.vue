@@ -13,7 +13,7 @@ const prop = defineProps({
   color: { type: String, default: 'main' },
 
   /** @param {Number} フォントサイズ */
-  fontsize: { type: Number, default: 1.4 },
+  fontsize: { type: Number, default: 1.3 },
 });
 
 // hrefが空かどうかをチェック
