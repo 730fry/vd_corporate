@@ -4,7 +4,11 @@
   import pNavButtonLink from '@/components/parts/pNavButtonLink.vue'
 	
   const prop = defineProps({ 
-		
+		/** @param {String} フォントカラー */ 
+		color: { type: String, default: 'main' },
+
+    /** @param {boolean} 矢印アイコンカラー */ 
+		arrowColor: { type: Boolean, default: true }
 	});
 </script>
 
@@ -15,8 +19,16 @@
       fileName="vd_logo_lrg.png"
     />
     <div class="tFooterNav-container">
-      <pNavButtonLink class=""/>
-      <pNavCompanyLink class=""/>
+      <pNavButtonLink 
+        class="tFooterNav-elem" 
+        :color="color"
+        :arrowColor="prop.arrowColor"
+        />
+      <pNavCompanyLink 
+        class="tFooterNav-elem" 
+        :color="color" 
+        :arrowColor="prop.arrowColor"
+      />
     </div>
   </div>
 </template>
@@ -28,6 +40,12 @@
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
+      }
+
+      .tFooterNav-elem {
+        @include mq('LARGE'){
+          width: 50%;
+        }
       }
     }
   }

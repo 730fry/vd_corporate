@@ -1,10 +1,22 @@
 <script setup>
   import cAnker from '@/components/commons/cAnker.vue'
+
+  // 矢印アイコンのパス
+  import arrowP from '@/assets/images/arrow_p.svg'
+  import arrowW from '@/assets/images/arrow_w.svg'
   
 	const prop = defineProps({
     /** @param {String} フォントカラー */ 
-		color: { type: String, default: 'main' } // デフォルトの色を設定
+		color: { type: String, default: 'main' },
+
+    /** @param {boolean} 矢印アイコンカラー */ 
+		arrowColor: { type: Boolean, default: true } 
 	});
+
+  /**　矢印アイコンの表示を切り替える computed プロパティ
+   * 　arrowColor が true の場合は arrow_p.svg、false の場合は arrow_w.svg を返す。
+  */ 
+  const arrowSrc = computed(() => prop.arrowColor ? arrowP : arrowW);
 </script>
 
 
@@ -17,25 +29,38 @@
         <li class="pNavButtonLink-list--elem">
           <cAnker class="pNavButtonLink-elem" linkType="OUTER" :color="color">
             marketing
-            <img class="pNavButtonLink-arrow" src="/assets/images/arrow_p.svg" alt="arrow">
+            <img 
+              class="pNavButtonLink-arrow" 
+              :src="arrowSrc"
+              alt="arrow"
+            >
           </cAnker>
         </li>
         <li class="pNavButtonLink-list--elem">
           <cAnker class="pNavButtonLink-elem" linkType="OUTER" :color="color">
             creative direction
-            <img class="pNavButtonLink-arrow" src="/assets/images/arrow_p.svg" alt="arrow">
+            <img class="pNavButtonLink-arrow" 
+              :src="arrowSrc"
+              alt="arrow"
+            >
           </cAnker>
         </li>
         <li class="pNavButtonLink-list--elem">
           <cAnker class="pNavButtonLink-elem" linkType="OUTER" :color="color">
             outbound | inbound
-            <img class="pNavButtonLink-arrow" src="/assets/images/arrow_p.svg" alt="arrow">
+            <img class="pNavButtonLink-arrow" 
+              :src="arrowSrc"
+              alt="arrow"
+            >
           </cAnker>
         </li>
         <li class="pNavButtonLink-list--elem">
           <cAnker class="pNavButtonLink-elem" linkType="OUTER" :color="color">
             leaning
-            <img class="pNavButtonLink-arrow" src="/assets/images/arrow_p.svg" alt="arrow">
+            <img class="pNavButtonLink-arrow" 
+              :src="arrowSrc"
+              alt="arrow"
+            >
           </cAnker>
         </li>
       </ul>

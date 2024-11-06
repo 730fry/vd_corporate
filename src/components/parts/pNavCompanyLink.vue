@@ -1,10 +1,23 @@
 <script setup>
+  import { defineProps, computed } from 'vue'
   import cAnker from '@/components/commons/cAnker.vue'
   
+  // 矢印アイコンのパス
+  import arrowP from '@/assets/images/arrow_p.svg'
+  import arrowW from '@/assets/images/arrow_w.svg'
+
 	const prop = defineProps({ 
 		/** @param {String} フォントカラー */ 
-		color: { type: String, default: 'main' } // デフォルトの色を設定
+		color: { type: String, default: 'main' }, 
+
+    /** @param {boolean} 矢印アイコンカラー */ 
+		arrowColor: { type: Boolean, default: true } 
 	});
+
+  /**　矢印アイコンの表示を切り替える computed プロパティ
+   * 　arrowColor が true の場合は arrow_p.svg、false の場合は arrow_w.svg を返す。
+  */ 
+  const arrowSrc = computed(() => prop.arrowColor ? arrowP : arrowW);
 </script>
 
 
@@ -14,17 +27,30 @@
       <span class="pNavCompanyLink-elem--info">
         <span class="pNavCompanyLink-info--elem">〒100-0013</span>
         <span class="pNavCompanyLink-info--elem">東京都千代田区霞ヶ関1丁目4番1号</span>
-        <span class="pNavCompanyLink-info--elem">日土地ビル2F SENQ霞が関<img class="pNavCompanyLink-arrow" src="/assets/images/arrow_p.svg" alt=""></span>
+        <span class="pNavCompanyLink-info--elem">日土地ビル2F SENQ霞が関
+          <img 
+            class="pNavCompanyLink-arrow" 
+            :src="arrowSrc"
+            alt="arrow">
+        </span>
       </span>
     </cAnker>
     <cAnker class="pNavCompanyLink-elem" href="/" linkType="INNER" :color="color">
       <span class="pNavCompanyLink-elem--info">
-        <span class="pNavCompanyLink-info--bold">tel:</span>03-4405-5225<img class="pNavCompanyLink-arrow" src="/assets/images/arrow_p.svg" alt="">
+        <span class="pNavCompanyLink-info--bold">tel:</span>03-4405-5225
+        <img 
+          class="pNavCompanyLink-arrow" 
+          :src="arrowSrc"
+          alt="arrow">
       </span>
     </cAnker>
     <cAnker class="pNavCompanyLink-elem" href="/" linkType="INNER" :color="color">
       <span class="pNavCompanyLink-elem--info">
-        <span class="pNavCompanyLink-info--bold">e-mail:</span>info@visionary-design.tokyo<img class="pNavCompanyLink-arrow" src="/assets/images/arrow_p.svg" alt="">
+        <span class="pNavCompanyLink-info--bold">e-mail:</span>info@visionary-design.tokyo
+        <img 
+          class="pNavCompanyLink-arrow" 
+          :src="arrowSrc"
+          alt="arrow">
       </span>
     </cAnker>
   </div>
