@@ -17,6 +17,7 @@
 	.pBackTop {
 		display: flex;
 		align-items: center;
+		
 		@include mq('SHORT'){
 			column-gap: 1.2em;
 		}
@@ -32,11 +33,11 @@
 
 		.pBackTop-text {
 			.pBackTop-text-elem {
+				font-weight: 600;
 				text-transform: uppercase;
+				color: $textP;
 				@include fontEng;
 				@include mqFontSize(1.2em, 1.1em);
-				font-weight: 600;
-				color: $textP;
 			}
 		}
 	}

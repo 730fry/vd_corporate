@@ -132,7 +132,7 @@ const getElem = () => {
 </template>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 	.cAnker {
     text-decoration: none;
     cursor: pointer;

@@ -22,5 +22,7 @@ const prop = defineProps({})
   padding-bottom: 2em;
 
   @include border();
+
+  @include mq('SHORT'){ display: none; }
 }
 </style>
