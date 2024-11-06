@@ -1,28 +1,52 @@
 <script setup>
+  import { ref } from 'vue';
   import pNavToggle from '@/components/parts/pNavToggle.vue'
   import pHeadLogo from '@/components/parts/pHeadLogo.vue'
   import pHeadButton from '@/components/parts/pHeadButton.vue'
-	const prop = defineProps({ 
-		
+  import tHeaderNavBarMenu from '@/components/templates/tHeaderNavBarMenu.vue'
+	
+  const prop = defineProps({ 
+		/** @param {String} フォントカラー */ 
+		color: { type: String, default: 'main' },
+
+    /** @param {boolean} 矢印アイコンカラー */ 
+		arrowColor: { type: Boolean, default: true }
 	});
+
+  // pNavToggle の状態を管理する
+  const isOpen = ref(false);
+
+  // トグル関数
+  const toggleNav = () => {
+    isOpen.value = !isOpen.value;
+  };
 </script>
 
 
 <template>
-  <div class="tHeaderNavBar">
+  <div :class="['tHeaderNavBar', {'tHeaderNavBar--open': isOpen}]">
     <pHeadLogo
       fileName="vd_logo_sml.png"
       class="tHeaderNavBar-logo"
     />
 
-    <pNavToggle/>
+    <pNavToggle 
+      class="tHeaderNavBar-toggle"
+      @click="toggleNav"/>
 
+  
     <pHeadButton
       href="/contact"
 		  linkType="INNER"
       class="tHeaderNavBar-contact"
     >Contact</pHeadButton>
   </div>
+
+  <tHeaderNavBarMenu
+    :color="color"
+    :arrowColor="prop.arrowColor"
+    :isOpen="isOpen"
+  />
 </template>
 
 <style lang="scss">
@@ -38,6 +62,7 @@
       padding-right: 5%;
       border-radius: 0 0 10px 10px;
       background-color: $textW;
+      background-color: lightcoral;
     }
 
     @include mq('LARGE'){
@@ -77,6 +102,36 @@
         position: absolute;
         bottom: 45px;
       }
+    }
+
+    // クリックされた時のスタイル
+    &--open {
+      background: transparent;
+
+      // ロゴ
+      .tHeaderNavBar-logo { 
+        @include mq('LARGE'){
+          display: none;
+        }
+      }
+
+      // ハンバーガーボタン
+      .tHeaderNavBar-toggle {
+        .pNavToggle-hamburger--open {
+          @include mq('LARGE'){
+            width: 48px;
+            height: 128px;
+          }
+        }
+      }
+
+      // コンタクトボタン
+      .tHeaderNavBar-contact {
+        @include mq('LARGE'){
+          display: none;
+        }
+      }
+
     }
   }
 </style>
