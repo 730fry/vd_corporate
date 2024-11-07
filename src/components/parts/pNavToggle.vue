@@ -97,6 +97,10 @@
           height: 14px;
 
           .pNavToggle-hamburger--bar {
+
+            @include mq('SHORT'){
+              background-color: $textW;
+            }
             
             &:nth-of-type(1) {
               transform: rotate(40deg) translateY(8px);
