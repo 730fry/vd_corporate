@@ -10,16 +10,13 @@
 		color: { type: String, default: 'main' },
 
     /** @param {boolean} 矢印アイコンカラー */ 
-		arrowColor: { type: Boolean, default: true }
+		arrowColor: { type: Boolean, default: true },
+
+    isOpen: { type: Boolean, default: false }
 	});
 
-  // pNavToggle の状態を管理する
-  const isOpen = ref(false);
+  const emit = defineEmits(['toggle-nav']);
 
-  // トグル関数
-  const toggleNav = () => {
-    isOpen.value = !isOpen.value;
-  };
 </script>
 
 
@@ -32,7 +29,8 @@
 
     <pNavToggle 
       class="tHeaderNavBar-toggle"
-      @click="toggleNav"/>
+      @click="$emit('toggle-nav')"
+      />
 
   
     <pHeadButton
@@ -41,12 +39,6 @@
       class="tHeaderNavBar-contact"
     >Contact</pHeadButton>
   </div>
-
-  <tHeaderNavBarMenu
-    :color="color"
-    :arrowColor="prop.arrowColor"
-    :isOpen="isOpen"
-  />
 </template>
 
 <style lang="scss">
@@ -62,7 +54,6 @@
       padding-right: 5%;
       border-radius: 0 0 10px 10px;
       background-color: $textW;
-      background-color: lightcoral;
     }
 
     @include mq('LARGE'){
@@ -75,6 +66,9 @@
       position: relative;
     }
 
+    // アニメーションは後で調整
+    transition: background 0.7s ease;
+    
     // ロゴ
     .tHeaderNavBar-logo {
       width: 7.5em;
@@ -131,7 +125,6 @@
           display: none;
         }
       }
-
     }
   }
 </style>

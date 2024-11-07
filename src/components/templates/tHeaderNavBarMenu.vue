@@ -9,20 +9,18 @@
 
     /** @param {boolean} 矢印アイコンカラー */ 
 		arrowColor: { type: Boolean, default: true },
-
-    isOpen: { type: Boolean, default: false }
 	});
 </script>
 
 
 <template>
-  <div :class="['tHeaderNavBarMenu', {'tHeaderNavBarMenu--open': isOpen}]">
+  <div class="tHeaderNavBarMenu">
     <pHeadLogo class="tHeaderNavBarMenu-logo"
-      fileName="vd_logo_lrg.png"
+    fileName="vd_logo_lrg.png"
     />
     <div class="tHeaderNavBarMenu-container">
       <pNavButtonLink 
-        class="tHeaderNavBarMenu-elem tHeaderNavBarMenu-" 
+        class="tHeaderNavBarMenu-elem tHeaderNavBarMenu-links" 
         :color="color"
         :arrowColor="prop.arrowColor"
         />
@@ -37,28 +35,75 @@
 
 <style lang="scss">
   .tHeaderNavBarMenu {
-    display: none; /* 初期状態は非表示 */
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    @include gradationGB(100deg);
+    height: 100vh;
+    position: relative;
 
-    background-color: lightblue;
-    .tHeaderNavBarMenu-logo {
-      @include mq('SHORT'){ display: none; }
-    }
-    .tHeaderNavBarMenu-container {
-      
-      .tHeaderNavBarMenu-terms {
+      @include mq('SHORT'){
+        padding-top: 8em;
+        padding-bottom: 4em;
+        padding-left: 2em;
+        padding-right: 2em;
+        width: 100%;
+      }
+
+      @include mq('LARGE'){
+        width: 73%;
+        padding-top: 4em;
+        padding-bottom: 4em;
+        padding-left: 8em;
+        padding-right: 4em;
+        
+      }
+
+      // ボーダー
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: var(--border-color-white);
+        
         @include mq('SHORT'){
-          flex-direction: column;
+          width: 95%;
+          height: 1px;
+          top: 5em;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        @include mq('LARGE'){
+          width: 1px;
+          height: 100%;
+          top: 0;
+          right: 6.5em;
         }
       }
-    }
 
-    // 開いた時のスタイル
-    &--open {
-      display: block; 
-      opacity: 1;
-      background-color: orange;
-    }
+      .tHeaderNavBarMenu-logo {
+        @include mq('SHORT'){ display: none; }
+      }
+
+      .tHeaderNavBarMenu-container {
+
+        @include mq('SHORT'){ }
+
+        @include mq('LARGE'){ }
+
+        // テキストの調整
+        .tHeaderNavBarMenu-links {
+          .pNavButtonLink-elem { @include mqFontSize(2.8em, 2.4em); }
+
+          .pNavButtonLink-list {
+            .pNavButtonLink-list--elem { @include mqFontSize(0.5em, 0.5em); }
+          }
+        }
+
+        .tHeaderNavBarMenu-terms {
+          flex-direction: column;
+          @include mq('SHORT'){ }
+
+          @include mq('LARGE'){ }
+        }
+      }
+    
   }
 </style>
