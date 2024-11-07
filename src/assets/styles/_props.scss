@@ -2,14 +2,16 @@
 
 :root {
   // ボーダー
-  --border-color: rgba(119, 62, 245, 0.15);
+  // black
+  --border-color-black: rgba(119, 62, 245, 0.15);
+  --border-color-white: rgba(255, 255, 255, 0.20);
 }
 
 // ボーダーを定義するミキシン
 // false/trueで装飾をするか否かを決める
 // 色は:rootの変数を使用して、変更をする
 @mixin border($show-top: false, $show-bottom: true) {
-  @if $show-top { border-top: 1px solid var(--border-color); }
-  @if $show-bottom { border-bottom: 1px solid var(--border-color); }
+  @if $show-top { border-top: 1px solid var(--border-color-black); }
+  @if $show-bottom { border-bottom: 1px solid var(--border-color-black); }
 }
 
