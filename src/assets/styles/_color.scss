@@ -15,3 +15,8 @@ $backgroundB: #332f49;
   background: rgb(31,251,145);
   background: linear-gradient($angle, rgba(31,251,145,1) 0%, rgba(46,128,228,1) 60%);
 }
+
+// オーバーレイに使用
+@mixin backgroundOpacity {
+  background: rgba(20,16,34, 0.75);
+}
